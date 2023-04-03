@@ -17,7 +17,7 @@ env:
   IMAGE_NAME: nfs-server
   IMAGES: |
     docker.io/obebete/nfs-server
-    ghcr.io/obeone/nfs-server
+    ghcr.io/mheers/nfs-server
 
 jobs:
   Build:

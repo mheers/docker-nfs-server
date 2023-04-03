@@ -6,14 +6,14 @@ You can adjust the logging level via the `NFS_LOG_LEVEL` environment variable. C
 
 In your `docker-run` command:
 ```
-docker run -e NFS_LOG_LEVEL=DEBUG ... ghcr.io/obeone/nfs-server
+docker run -e NFS_LOG_LEVEL=DEBUG ... ghcr.io/mheers/nfs-server
 ```
 or in `docker-compose.yml`:
 ```YAML
 version: 3
 services:
   nfs:
-    image: ghcr.io/obeone/nfs-server
+    image: ghcr.io/mheers/nfs-server
     ...
     environment:
       - NFS_LOG_LEVEL: DEBUG

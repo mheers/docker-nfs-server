@@ -13,7 +13,7 @@ Here's an example `docker-compose.yml`:
    version: 3
    services:
      nfs:
-       image: ghcr.io/obeone/nfs-server
+       image: ghcr.io/mheers/nfs-server
        volumes:
          - /path/to/share:/nfs
          - /path/to/exports.txt:/etc/exports:ro
