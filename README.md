@@ -34,6 +34,7 @@ This forked version add the following features :
 * Usage
   * [Starting the server](#starting-the-server)
   * [Mounting filesystems from a client](#mounting-filesystems-from-a-client)
+  * [Docker-compose](#docker-compose)
 * Optional features
   * [Debug logging](https://github.com/ehough/docker-nfs-server/blob/develop/doc/feature/logging.md)
   * [Kerberos security](https://github.com/ehough/docker-nfs-server/blob/develop/doc/feature/kerberos.md)
@@ -153,6 +154,26 @@ If you pay close attention to each of the items in this section, the server shou
 ### Mounting filesystems from a client
 
     # mount <container-IP>:/some/export /some/local/path
+
+### Docker-compose
+
+#### Start NFS server
+1. on the host machine run
+```bash
+sudo systemctl stop rpcbind
+sudo systemctl disable rpcbind
+sudo systemctl mask rpcbind
+sudo systemctl stop rpcbind.socket
+sudo systemctl disable rpcbind.socket
+sudo systemctl stop rpcbind
+sudo modprobe nfsd nfs
+```
+2. run `docker-compose up`
+
+#### Test NFS server
+1. run `sudo apt install nfs-common` on the host machine and make a `showmount -e localhost` to see the exports
+1. run `mkdir -p /tmp/test && sudo mount -t nfs localhost:/exports /tmp/test` on the host machine to mount the exports
+
 
 ## Optional Features
 
