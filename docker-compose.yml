@@ -1,0 +1,14 @@
+version: '3'
+services:
+  nfs-server:
+    image: mheers/nfs-server
+    ports:
+      - "2049:2049"
+    volumes:
+      - /tmp/nfs-folder:/exports
+    environment:
+      NFS_EXPORT_1: /exports *(rw,sync,no_subtree_check,insecure)
+      NFS_EXPORT_2: /exports/another-folder *(rw,sync,no_subtree_check,insecure)
+    privileged: true
+
+## run `sudo modprobe nfsd nfs` on the host machine before running `docker-compose up`
