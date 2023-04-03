@@ -2,8 +2,8 @@
 #
 # ehough/docker-nfs-server: A lightweight, robust, flexible, and containerized NFS server.
 #
-# https://github.com/obeone/docker-nfs-server
-# https://github.com/obeone/docker-nfs-server/pkgs/container/docker-nfs-server
+# https://github.com/mheers/docker-nfs-server
+# https://github.com/mheers/docker-nfs-server/pkgs/container/docker-nfs-server
 #
 # Almost all the work is from @ehough, I just created workflow to keep the
 # docker image up-to-date and build for multiple architectures
@@ -534,7 +534,7 @@ boot_helper_mount() {
 boot_helper_get_version_flags() {
 
   local -r requested_version="${state[$STATE_NFS_VERSION]}"
-  local flags=('--nfs-version' "$requested_version" '--no-nfs-version' 2)
+  local flags=('--nfs-version' "$requested_version")
 
   if ! is_nfs3_enabled; then
     flags+=('--no-nfs-version' 3)
